@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Attendance</h1>
+        <p>Total Attendance: {{ total_attendance }}%</p>
+        <a class="btn btn-primary mb-3" href="{% url 'attendance:add_subject' %}">Add Subject</a>
+        <ul class="list-group">
+            {% for subject in subjects %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="{% url 'attendance:subject_detail' subject.id %}">{{ subject.name }}</a> 
+                    <span>{{ subject.attendance_percentage }}%</span>
+                    <div>
+                        <a class="btn btn-success btn-sm mr-2" href="{% url 'attendance:record_attendance' subject.id 'P' %}">P</a>
+                        <a class="btn btn-danger btn-sm" href="{% url 'attendance:record_attendance' subject.id 'A' %}">A</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

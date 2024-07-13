@@ -1,0 +1,11 @@
+<!-- templates/todo/add_task.html -->
+{% extends 'todo/base.html' %}
+
+{% block content %}
+<h1>Add Task</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+{% endblock %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Submission</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Confirm Submission</h1>
+        <p>You have already submitted today's attendance for this subject. Do you want to submit more?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary" name="confirm" value="yes">Yes</button>
+            <button type="submit" class="btn btn-secondary" name="confirm" value="no">No</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
